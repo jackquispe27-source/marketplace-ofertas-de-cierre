@@ -23,10 +23,22 @@ Referencias funcionales: Cirkula (Lima), Too Good To Go (Europa/EE.UU.) y Cheaf 
 Arquitectura de Software (IS-488) · UNSCH · Semestre 2026-II
 Docente: Ing. Lizbeth Jaico Quispe
 
+## Proceso de arquitectura
+| # | Etapa | Documento |
+|---|---|---|
+| 1 | Necesidad del negocio | [00-necesidad-del-negocio.md](analisis-de-sistema/00-necesidad-del-negocio.md) |
+| 2 | Requisitos | [01-actores](analisis-de-sistema/01-actores.md) · [02-historias](analisis-de-sistema/02-historias-del-usuario.md) · [03-RF](analisis-de-sistema/03-requisitos-funcionales.md) · [05-restricciones](analisis-de-sistema/05-restricciones.md) |
+| 3 | Atributos de calidad | [04-atributos-de-calidad.md](analisis-de-sistema/04-atributos-de-calidad.md) |
+| 4 | Drivers arquitectónicos | [06-driver-arquitectonicos.md](analisis-de-sistema/06-driver-arquitectonicos.md) |
+| 5 | Decisiones arquitectónicas (ADR) | [arquitectura/decisiones/](arquitectura/decisiones/README.md) |
+| 6 | Estilo arquitectónico | [estilo-arquitectonico.md](arquitectura/estilo-arquitectonico.md) |
+| 7 | Enfoque: Clean Architecture | [enfoque-arquitectonico.md](arquitectura/enfoque/enfoque-arquitectonico.md) |
+
 ## Estructura del repositorio
 ```
-Marketplace-arquitSoft-02/
+marketplace-ofertas-de-cierre/
 ├── analisis-de-sistema/
+│   ├── 00-necesidad-del-negocio.md
 │   ├── 01-actores.md
 │   ├── 02-historias-del-usuario.md
 │   ├── 03-requisitos-funcionales.md
@@ -34,7 +46,11 @@ Marketplace-arquitSoft-02/
 │   ├── 05-restricciones.md
 │   └── 06-driver-arquitectonicos.md
 ├── arquitectura/
-│   └── arquitectura-inicial.md
+│   ├── arquitectura-inicial.md
+│   ├── estilo-arquitectonico.md
+│   ├── decisiones/          # ADR-001 … ADR-008
+│   └── enfoque/
+│       └── enfoque-arquitectonico.md
 ├── .gitignore
 └── README.md
 ```
