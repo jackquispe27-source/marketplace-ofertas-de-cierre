@@ -23,34 +23,48 @@ Referencias funcionales: Cirkula (Lima), Too Good To Go (Europa/EE.UU.) y Cheaf 
 Arquitectura de Software (IS-488) · UNSCH · Semestre 2026-II
 Docente: Ing. Lizbeth Jaico Quispe
 
-## Proceso de arquitectura
+## Proceso de arquitectura (Sprint 1)
+
 | # | Etapa | Documento |
 |---|---|---|
-| 1 | Necesidad del negocio | [00-necesidad-del-negocio.md](analisis-de-sistema/00-necesidad-del-negocio.md) |
-| 2 | Requisitos | [01-actores](analisis-de-sistema/01-actores.md) · [02-historias](analisis-de-sistema/02-historias-del-usuario.md) · [03-RF](analisis-de-sistema/03-requisitos-funcionales.md) · [05-restricciones](analisis-de-sistema/05-restricciones.md) |
-| 3 | Atributos de calidad | [04-atributos-de-calidad.md](analisis-de-sistema/04-atributos-de-calidad.md) |
-| 4 | Drivers arquitectónicos | [06-driver-arquitectonicos.md](analisis-de-sistema/06-driver-arquitectonicos.md) |
-| 5 | Decisiones arquitectónicas (ADR) | [arquitectura/decisiones/](arquitectura/decisiones/README.md) |
-| 6 | Estilo arquitectónico | [estilo-arquitectonico.md](arquitectura/estilo-arquitectonico.md) |
-| 7 | Enfoque: Clean Architecture | [enfoque-arquitectonico.md](arquitectura/enfoque/enfoque-arquitectonico.md) |
+| 1 | Necesidad del negocio | [00-necesidad-del-negocio](docs/01-analisis-de-sistema/00-necesidad-del-negocio.md) |
+| 2 | Requisitos | [01-actores](docs/01-analisis-de-sistema/01-actores.md) · [02-historias](docs/01-analisis-de-sistema/02-historias-del-usuario.md) · [03-requisitos funcionales](docs/01-analisis-de-sistema/03-requisitos-funcionales.md) · [05-restricciones](docs/01-analisis-de-sistema/05-restricciones.md) |
+| 3 | Atributos de calidad | [04-atributos](docs/01-analisis-de-sistema/04-atributos-de-calidad.md) · [08-escenarios medibles](docs/01-analisis-de-sistema/08-escenarios-atributos-calidad.md) |
+| 4 | Drivers arquitectónicos | [06-drivers](docs/01-analisis-de-sistema/06-driver-arquitectonicos.md) |
+| 5 | Decisiones arquitectónicas | [07-resumen](docs/01-analisis-de-sistema/07-decisiones-arquitectonicas.md) · [ADR-001 … ADR-009](docs/02-arquitectura-software/decisiones/README.md) |
+| 6 | Estilo arquitectónico | [estilo-arquitectonico](docs/02-arquitectura-software/estilo-arquitectonico.md) (monolito modular en capas) |
+| 7 | Enfoque arquitectónico | [enfoque-arquitectonico](docs/02-arquitectura-software/enfoque-arquitectonico.md) (Clean Architecture) |
+| 9 | Componentes y trazabilidad | [componentes-arquitectonicos](docs/02-arquitectura-software/componentes-arquitectonicos.md) |
+| 10 | Diseño interno (SOLID y patrones) | [módulos](docs/03-diseno-de-software/diseno-interno/diseno-interno-de-modulos.md) · [principios](docs/03-diseno-de-software/diseno-interno/principios-de-diseno.md) · [patrones](docs/03-diseno-de-software/diseno-interno/patrones-de-diseno.md) |
+| 13 | Documentación C4 | [Nivel 1](docs/04-modelo-c4/Nivel1-DiagramadeContextodelSistema.md) · [Nivel 2](docs/04-modelo-c4/Nivel2-DiagramadeContenedores.md) · [Nivel 3](docs/04-modelo-c4/Nivel3-Diagrama-de-Componentes.md) · [Nivel 4](docs/04-modelo-c4/Nivel4-DiagramadeCodigo.md) |
+| — | Código de referencia | [tecnologia/ejemplo-clean-architecture](tecnologia/ejemplo-clean-architecture/README.md) (Node.js, 15 pruebas) |
 
 ## Estructura del repositorio
-```
+
+```text
 marketplace-ofertas-de-cierre/
-├── analisis-de-sistema/
-│   ├── 00-necesidad-del-negocio.md
-│   ├── 01-actores.md
-│   ├── 02-historias-del-usuario.md
-│   ├── 03-requisitos-funcionales.md
-│   ├── 04-atributos-de-calidad.md
-│   ├── 05-restricciones.md
-│   └── 06-driver-arquitectonicos.md
-├── arquitectura/
-│   ├── arquitectura-inicial.md
-│   ├── estilo-arquitectonico.md
-│   ├── decisiones/          # ADR-001 … ADR-008
-│   └── enfoque/
-│       └── enfoque-arquitectonico.md
+├── docs/
+│   ├── 01-analisis-de-sistema/        00 necesidad … 08 escenarios de calidad
+│   ├── 02-arquitectura-software/      arquitectura inicial, estilo, enfoque, componentes
+│   │   └── decisiones/                ADR-001 … ADR-009
+│   ├── 03-diseno-de-software/
+│   │   └── diseno-interno/            módulos, principios SOLID, patrones
+│   ├── 04-modelo-c4/                  Nivel 1 … Nivel 4
+│   └── img/                           diagramas exportados en PNG (para presentaciones)
+├── tecnologia/
+│   └── ejemplo-clean-architecture/    código ejecutable del módulo Pedidos
 ├── .gitignore
 └── README.md
+```
+
+> Los diagramas están escritos en **Mermaid** dentro de cada `.md`: GitHub los dibuja automáticamente y se versionan como texto. En `docs/img/` hay una copia PNG de cada uno.
+> Los nombres de carpetas y archivos no llevan tildes ni ñ, para evitar problemas de codificación entre Windows, Git y GitHub.
+
+## Ejecutar el ejemplo de código
+
+```bash
+cd tecnologia/ejemplo-clean-architecture
+npm install
+npm test
+npm start
 ```
