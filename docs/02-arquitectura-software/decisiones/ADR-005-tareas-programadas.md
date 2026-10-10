@@ -7,8 +7,9 @@
 Una oferta deja de ser válida cuando pasa su hora límite o se agota su stock, y una reserva no confirmada debe liberar su unidad a los 30 minutos. Esto tiene que ocurrir aunque nadie esté usando la web en ese momento.
 
 ## Decisión
-- Crear el caso de uso **`ExpirarOfertasYReservas`** en la capa de aplicación.
+- Crear el caso de uso **`ExpirarReservas`** en la capa de aplicación.
 - Una **tarea programada** dentro del mismo backend (por ejemplo, con `node-cron`) lo ejecuta **cada minuto**. Es un adaptador de infraestructura: solo dispara el caso de uso.
+- En la misma ejecución, el módulo Ofertas cambia a FINALIZADA las ofertas que ya pasaron su hora límite (caso de uso `FinalizarOfertasVencidas`).
 - Además, el listado público filtra por `hora_limite > ahora`, de modo que una oferta vencida no se muestra aunque la tarea programada se retrase.
 - La hora se obtiene a través del puerto `Reloj`, para poder probar los vencimientos sin esperar.
 

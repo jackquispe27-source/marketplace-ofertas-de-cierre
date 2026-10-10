@@ -9,7 +9,7 @@
 |---|---|---|
 | **Cliente-servidor** | La aplicación web (vitrina pública, panel del negocio y panel de administración) corre en el navegador y consume el backend por HTTPS/JSON. | DA08, RC01, RC03 |
 | **Monolito modular** | Un solo backend Node.js + Express, dividido en 6 módulos con límites claros. Un solo despliegue y una sola base de datos. | DA07, DA09, RC10 |
-| **En capas** | Cada módulo tiene presentación, lógica de negocio (aplicación y dominio) y datos (infraestructura). La organización interna sigue Clean Architecture (ver [`enfoque/`](enfoque/enfoque-arquitectonico.md)). | DA09 |
+| **En capas** | Cada módulo tiene presentación, lógica de negocio (aplicación y dominio) y datos (infraestructura). La organización interna sigue Clean Architecture (ver [enfoque-arquitectonico.md](enfoque-arquitectonico.md)). | DA09 |
 
 ### ¿Por qué no otros estilos?
 | Estilo | Evaluación |
@@ -45,7 +45,7 @@ flowchart TB
             L1["Acceso<br/>IniciarSesion"]
             L2["Negocios<br/>RegistrarNegocio<br/>VerificarNegocio"]
             L3["Ofertas<br/>PublicarOferta<br/>ListarOfertasCercanas"]
-            L4["Pedidos<br/>PedirOferta<br/>ConfirmarVenta"]
+            L4["Pedidos<br/>PedirOferta<br/>ResolverPedido"]
             L5["Reportes<br/>GenerarReporteMensual"]
             L6["Moderación<br/>ReportarOferta<br/>SuspenderNegocio"]
         end
@@ -54,7 +54,7 @@ flowchart TB
             DR["UsuarioRepo · NegocioRepo · OfertaRepo + caché · CodigoCanjeRepo · ReporteRepo · DenunciaRepo<br/>WaMeEnlaceAdapter · CloudinaryAdapter"]
         end
 
-        CRON["Tarea programada (cada 1 min)<br/>ExpirarOfertasYReservas"]
+        CRON["Tarea programada (cada 1 min)<br/>ExpirarReservas"]
     end
 
     DB[("PostgreSQL")]

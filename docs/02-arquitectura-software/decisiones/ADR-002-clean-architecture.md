@@ -12,7 +12,7 @@ Aplicar **Clean Architecture** en cada módulo, con dependencias que apuntan sol
 | Capa | Contenido en este proyecto |
 |---|---|
 | **Dominio** | Entidades (`Oferta`, `Negocio`, `CodigoCanje`, `Ciudad`), reglas del negocio y contratos (puertos) como `OfertaRepository`. |
-| **Aplicación** | Casos de uso: `PublicarOferta`, `PedirOferta`, `ConfirmarVenta`, `ExpirarOfertasYReservas`, `GenerarReporteMensual`. |
+| **Aplicación** | Casos de uso: `PublicarOferta`, `PedirOferta`, `ResolverPedido`, `ExpirarReservas`, `GenerarReporteMensual`. |
 | **Infraestructura** | Adaptadores: repositorios PostgreSQL, enlace `wa.me`, almacenamiento de imágenes, JWT y tareas programadas. |
 | **Presentación** | Rutas y controladores de Express, DTOs y validación de entrada; la aplicación web del cliente. |
 

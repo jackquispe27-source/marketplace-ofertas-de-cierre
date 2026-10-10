@@ -1,6 +1,6 @@
 # Enfoque arquitectónico: Clean Architecture
 
-> Etapa 7: **¿qué estructura usamos para organizar las responsabilidades y dependencias internas?** ([ADR-002](../decisiones/ADR-002-clean-architecture.md))
+> Etapa 7: **¿qué estructura usamos para organizar las responsabilidades y dependencias internas?** ([ADR-002](decisiones/ADR-002-clean-architecture.md))
 
 | Elemento | Descripción aplicada al Marketplace de Ofertas de Cierre |
 |---|---|
@@ -25,7 +25,7 @@ flowchart TB
     end
 
     subgraph APP["APLICACIÓN — casos de uso"]
-        UC["PublicarOferta · ListarOfertasCercanas · PedirOferta<br/>ConfirmarVenta · ExpirarOfertasYReservas · GenerarReporteMensual"]
+        UC["PublicarOferta · ListarOfertasCercanas · PedirOferta<br/>ResolverPedido · ExpirarReservas · GenerarReporteMensual"]
     end
 
     subgraph DOM["DOMINIO — no depende de nadie"]
@@ -52,7 +52,7 @@ flowchart TB
 |---|---|
 | `Oferta` | `precioOferta < precioCarta`; no se publica si `fechaVencimiento < hoy`; `stock ≥ 0`; estados ACTIVA → PAUSADA / AGOTADA / FINALIZADA. |
 | `Negocio` | El plan Gratis permite 1 oferta al día; un negocio suspendido no publica; se verifica su precio de carta. |
-| `CodigoCanje` | Máquina de estados RESERVADO → VENDIDO / NO_CONCRETADO / EXPIRADO; una reserva expira a los 30 min ([ADR-004](../decisiones/ADR-004-codigo-de-canje.md)). |
+| `CodigoCanje` | Máquina de estados RESERVADO → VENDIDO / NO_CONCRETADO / EXPIRADO; una reserva expira a los 30 min ([ADR-004](decisiones/ADR-004-codigo-de-canje.md)). |
 | `Ciudad` | Negocios y ofertas pertenecen a una ciudad (DA07). |
 | Puertos | Contratos que la infraestructura debe cumplir. |
 
@@ -66,7 +66,7 @@ Orquestan el dominio y los puertos, y no conocen HTTP ni SQL. Ejemplo de **`Pedi
 6. Hace el commit y devuelve `{ codigo, enlace }`.
 
 ### Infraestructura
-Repositorios con `pg`, el adaptador `wa.me`, Cloudinary, JWT, bcrypt, la caché del listado ([ADR-008](../decisiones/ADR-008-cache-e-imagenes.md)) y la tarea programada ([ADR-005](../decisiones/ADR-005-tareas-programadas.md)).
+Repositorios con `pg`, el adaptador `wa.me`, Cloudinary, JWT, bcrypt, la caché del listado ([ADR-008](decisiones/ADR-008-cache-e-imagenes.md)) y la tarea programada ([ADR-005](decisiones/ADR-005-tareas-programadas.md)).
 
 ### Presentación
 Rutas y controladores de Express: traducen HTTP ↔ DTO, validan la entrada, llaman al caso de uso y devuelven el código HTTP correspondiente (`201`, `409 oferta agotada`, `403`). También incluye la aplicación web del cliente.
@@ -95,7 +95,7 @@ backend/
 │   │   │   ├── aplicacion/       # PublicarOferta.js, ListarOfertasCercanas.js
 │   │   │   ├── infraestructura/  # PgOfertaRepository.js, CacheOfertaRepository.js
 │   │   │   └── presentacion/     # ofertas.routes.js, OfertaController.js, dto/
-│   │   ├── pedidos/              # misma estructura (CodigoCanje, PedirOferta, ConfirmarVenta)
+│   │   ├── pedidos/              # misma estructura (CodigoCanje, PedirOferta, ResolverPedido)
 │   │   ├── negocios/
 │   │   ├── acceso/
 │   │   ├── reportes/

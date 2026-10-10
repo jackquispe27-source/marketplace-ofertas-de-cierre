@@ -40,12 +40,12 @@ Un driver arquitectónico es un requisito, atributo de calidad o restricción qu
 
 | Prioridad | Driver | Problema que plantea | Decisión que responde |
 |---|---|---|---|
-| 1 | DA02 – Sin sobreventa | Varios clientes piden la última unidad al mismo tiempo. | Transacción con bloqueo de fila en PostgreSQL ([ADR-003](../arquitectura/decisiones/ADR-003-postgresql-transacciones.md)) |
-| 2 | DA01 – Trazabilidad | La venta ocurre en WhatsApp, fuera del sistema. | Código de canje con máquina de estados en el dominio ([ADR-004](../arquitectura/decisiones/ADR-004-codigo-de-canje.md)) |
-| 3 | DA03 – Ofertas temporales | Las ofertas y reservas vencen aunque nadie use la web. | Tarea programada que ejecuta el caso de uso de expiración ([ADR-005](../arquitectura/decisiones/ADR-005-tareas-programadas.md)) |
-| 4 | DA09 – Mantenibilidad | El sistema va a cambiar según los resultados del piloto. | Monolito modular + Clean Architecture ([ADR-001](../arquitectura/decisiones/ADR-001-monolito-modular.md), [ADR-002](../arquitectura/decisiones/ADR-002-clean-architecture.md)) |
-| 5 | DA04 – Seguridad por negocio | Hay datos de varios negocios en el mismo sistema. | Autenticación JWT, roles y filtrado por negocio ([ADR-006](../arquitectura/decisiones/ADR-006-autenticacion-roles.md)) |
-| 6 | DA06 – Integraciones externas | WhatsApp por enlace y pago fuera del sistema. | Puertos y adaptadores para WhatsApp e imágenes ([ADR-007](../arquitectura/decisiones/ADR-007-integraciones-puertos-adaptadores.md)) |
-| 7 | DA05 – Rendimiento móvil | Carga alta en la hora de cierre y conexión con datos móviles. | Caché del listado e imágenes optimizadas ([ADR-008](../arquitectura/decisiones/ADR-008-cache-e-imagenes.md)) |
+| 1 | DA02 – Sin sobreventa | Varios clientes piden la última unidad al mismo tiempo. | Transacción con bloqueo de fila en PostgreSQL ([ADR-003](../02-arquitectura-software/decisiones/ADR-003-postgresql-transacciones.md)) |
+| 2 | DA01 – Trazabilidad | La venta ocurre en WhatsApp, fuera del sistema. | Código de canje con máquina de estados en el dominio ([ADR-004](../02-arquitectura-software/decisiones/ADR-004-codigo-de-canje.md)) |
+| 3 | DA03 – Ofertas temporales | Las ofertas y reservas vencen aunque nadie use la web. | Tarea programada que ejecuta el caso de uso de expiración ([ADR-005](../02-arquitectura-software/decisiones/ADR-005-tareas-programadas.md)) |
+| 4 | DA09 – Mantenibilidad | El sistema va a cambiar según los resultados del piloto. | Monolito modular + Clean Architecture ([ADR-001](../02-arquitectura-software/decisiones/ADR-001-monolito-modular.md), [ADR-002](../02-arquitectura-software/decisiones/ADR-002-clean-architecture.md)) |
+| 5 | DA04 – Seguridad por negocio | Hay datos de varios negocios en el mismo sistema. | Autenticación JWT, roles y filtrado por negocio ([ADR-006](../02-arquitectura-software/decisiones/ADR-006-autenticacion-roles.md)) |
+| 6 | DA06 – Integraciones externas | WhatsApp por enlace y pago fuera del sistema. | Puertos y adaptadores para WhatsApp e imágenes ([ADR-007](../02-arquitectura-software/decisiones/ADR-007-integraciones-puertos-adaptadores.md)) |
+| 7 | DA05 – Rendimiento móvil | Carga alta en la hora de cierre y conexión con datos móviles. | Caché del listado e imágenes optimizadas ([ADR-008](../02-arquitectura-software/decisiones/ADR-008-cache-e-imagenes.md)) |
 | 8 | DA07 – Varias ciudades | Replicar en Cusco y otras ciudades. | Entidad *Ciudad* en el dominio desde el MVP (ADR-001) |
 | 9 | DA08 – REST + Node + PostgreSQL | Restricción del curso. | Cliente-servidor con API REST (ADR-001) |
